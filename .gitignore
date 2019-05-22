@@ -4,6 +4,7 @@
 # develop
 ormconfig.json
 /dist
+.next
 
 # misc
 .DS_Store

@@ -1,18 +1,19 @@
-import { Controller, Param, Get } from '@nestjs/common';
+import { Controller, Param, Get, Res } from '@nestjs/common';
 import { TemplateService } from './template.service';
 import { Template } from './template.entity';
+import { NextResponse } from 'server/common/next/next.core';
 
 @Controller()
 export class TemplateController {
   constructor(private readonly templateService: TemplateService) { }
 
-  @Get()
-  hello(): Promise<string> {
-    return Promise.resolve('Hello World!');
+  @Get('/')
+  hello(@Res() res: NextResponse) {
+    res.nextRender('/index');
   }
 
-  @Get('/:id')
-  getOne(@Param('id') id): Promise<Template> {
+  @Get('/template')
+  getOne(): Promise<Template> {
     return this.templateService.getOne(1);
   }
 
