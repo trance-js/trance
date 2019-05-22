@@ -1,5 +1,6 @@
 import { withRouter } from 'next/router';
 import * as React from 'react';
+import { Button } from 'antd';
 
 interface Props {
   name: string;
@@ -11,7 +12,13 @@ class Index extends React.Component<Props> {
   }
 
   public render() {
-    return (<div>{this.props.name}</div>);
+    return (
+      <div>
+        <div>{this.props.name}</div>
+        <Button type='primary'>buttom</Button>
+      </div>
+
+    );
   }
 }
 

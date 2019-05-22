@@ -10,7 +10,7 @@ const dev = process.env.NODE_ENV !== 'production';
 @Module({
   imports: [
     ConfigModule.load(path.resolve(__dirname, 'config.{ts,js}')),
-    NextModule.forRoot({ dev }),
+    NextModule.forRoot({ dev, dir: './src' }),
     DBModule,
     TemplateModule,
   ],

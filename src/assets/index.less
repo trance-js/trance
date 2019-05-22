@@ -1,0 +1,372 @@
+
+html,
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 960px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.5;
+  canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #root {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow: hidden;
+    color: #444444;
+  }
+  .ant-layout {
+    transform: translateZ(0);
+    overflow: hidden;
+  }
+  // tab
+  .ant-tabs-nav {
+    .ant-tabs-tab {
+      color: #6e6e6e;
+    }
+    .ant-tabs-tab-active {
+      color: #ddd;
+    }
+  }
+  // collapse
+  .ant-collapse {
+    &-header {
+      font-size: 12px;
+      color: #e0e0e0 !important;
+    }
+    &-content {
+      padding: 0;
+      color: #ddd;
+      border-top: 1px solid #333333 !important;
+    }
+    &-item {
+      border-bottom: 1px solid #333333 !important;
+    }
+  }
+  .ant-collapse-borderless {
+    background-color: #282828;
+  }
+  // slider
+  .ant-slider {
+    &-handle {
+      background-color: #282828;
+      &:hover {
+        transform: scale(1.2);
+        transform-origin: center center;
+      }
+    }
+    &:hover {
+      .ant-slider-handle {
+        border-color: rgb(255, 131, 90) !important;
+      }
+    }
+  }
+  // input
+  .ant-input-number {
+    border: 1px solid #333333;
+    &-focused {
+      border-color: #6e6e6e;
+      outline: 0;
+      box-shadow: 0 0 0 2px rgba(65, 65, 65, 0.2);
+    }
+    &-handler {
+      color: #ddd;
+      &-down {
+        border-top: 1px solid #333333;
+        top: -1px;
+        &-inner {
+          color: #ffffff;
+        }
+      }
+      &-up {
+        &-inner {
+          color: #ffffff;
+        }
+      }
+      &-wrap {
+        border-left: 1px solid #333333;
+        background: #282828;
+        z-index: 2;
+      }
+    }
+    &:focus {
+      border-color: #6e6e6e;
+      outline: 0;
+      box-shadow: 0 0 0 2px rgba(65, 65, 65, 0.2);
+    }
+  }
+
+  // popover
+  .ant-popover-title {
+    border-bottom: 1px solid #333333;
+    color: #DDDDDD;
+  }
+  // radio
+  .ant-radio {
+    &-wrapper {
+      color: #dddddd;
+    }
+    &-inner {
+      border-color: #414141;
+    }
+  }
+
+  // modal
+  .ant-modal {
+    &-header {
+      border-bottom: 1px solid #333333;
+    }
+    &-close {
+      color: #DDDDDD;
+    }
+    &-title {
+      color: #DDDDDD;
+    }
+    &-body {
+      padding: 16px;
+    }
+    &-content {
+      background-color: #282828;
+    }
+    &-footer {
+      border-top: 1px solid #333333;
+    }
+    &-confirm-btns {
+      .ant-btn {
+        &:first-child {
+          border-color: #414141;
+          background-color: transparent;
+          color: #DDDDDD;
+          &:hover {
+            background-color: #ffffff;
+            border-color: #414141;
+            color: #414141;
+          }
+        }
+        &:last-child {
+          background-color: #414141;
+          color: #DDDDDD;
+          border-color: transparent;
+          &:hover {
+            background-color: #6e6e6e;
+            border-color: #6e6e6e;
+          }
+        }
+      }
+    }
+  }
+
+  // pagination
+  .ant-pagination {
+    &-item {
+      border: 1px solid #333333;
+      background-color: #282828;
+      &-active {
+        border-color: #ff835a;
+        a {
+          color: #ff835a !important;
+        }
+      }
+      a {
+        color: #DDDDDD;
+      }
+      &-ellipsis {
+        color: #DDDDDD !important;
+      }
+    }
+    &-next,
+    &-prev {
+      .ant-pagination-item-link {
+        border: 1px solid #333333 !important;
+        background-color: #282828 !important;
+        color: #DDDDDD !important;
+      }
+    }
+  }
+
+  // checkbox {
+  .ant-checkbox {
+    &-checked {
+      .ant-checkbox-inner {
+        &::after {
+          border-color: #fff;
+        }
+      }
+    }
+  }
+
+  // selection
+  .ant-select {
+    &-arrow {
+      color: #DDDDDD;
+    }
+    &-dropdown {
+      background-color: #414141;
+      &-menu {
+        &-item {
+          &-selected,
+          &-active {
+            background-color: #333333;
+            color: #fff;
+          }
+          &:hover {
+            background-color: #333333;
+          }
+        }
+        &::-webkit-scrollbar-track {
+          border: 0 solid black;
+          background-color: #414141;
+        }
+        &::-webkit-scrollbar {
+          width: 4px;
+          background-color: #414141;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #989898;
+        }
+      }
+    }
+    &-selection{
+      border: 1px solid #333333;
+      background-color:#414141;
+      color: #DDDDDD;
+    }
+  }
+
+  // form
+  .ant-form-item-label {
+    label{
+      color: #ddd;
+      font-size: 12px;
+    }
+  }
+  .drag {
+    position: relative;
+    padding-bottom: 1px;
+    margin-top: -1px;
+    background-color: #ffffff;
+    cursor: pointer;
+    &-component {
+      position: relative;
+      border-top: 1px dashed #cccccc;
+      background-color: #e8e8ea;
+      transition: opacity 0.2s ease;
+    }
+    &-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      background-color: rgba(0,0,0,0.3);
+      cursor: row-resize;
+      transition: background-color 0.2s ease;
+      z-index: 3;
+      &:hover {
+        background-color: #282828;
+      }
+    }
+    &-tool {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: 40px;
+      background-color: rgba(0,0,0,0.3);
+      transition: background-color 0.2s ease;
+      z-index: 3;
+      &.hide {
+        display: none;
+      }
+      &-item {
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        color: #ffffff;
+        transition: background-color 0.2s ease;
+        cursor: pointer;
+        &:hover {
+          background-color: #282828;
+        }
+      }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+    }
+    &:first-child {
+      border-top: none;
+    }
+    transition: opacity 0.2s ease;
+  }
+  // 拖拽时候的样式
+  .drag-el {
+    position: relative;
+    background-color: #ddd;
+  }
+
+  .x-date-modal {
+    .ant-modal-body {
+      position: relative;
+      min-height: 340px;
+      padding: 0;
+      .ant-calendar-picker-container {
+        left: 0 !important;
+        top: 0 !important;
+      }
+    }
+  }
+
+  .x-customer-modal {
+    .ant-modal-footer {
+      .ant-btn {
+        color: #DDDDDD;
+        background-color: transparent;
+        border-color: #DDDDDD;
+        &-primary {
+          color: #DDDDDD;
+          background-color: #414141;
+          border-color: #414141;
+        }
+      }
+    }
+
+  }
+
+  // 日期组件
+  .ant-calendar {
+    border-color: #414141;
+    .ant-calendar-input {
+      background-color: #282828;
+    }
+  }
+  .ant-calendar-time-picker-select {
+    &:hover {
+      &::-webkit-scrollbar-track {
+        border: 0 solid black;
+        background-color: #282828;
+      }
+      &::-webkit-scrollbar {
+        width: 4px;
+        background-color: #282828;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #3b3e40;
+      }
+    }
+  }
+}
+
+
