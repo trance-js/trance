@@ -15,7 +15,7 @@ class Index extends React.Component<Props> {
     return (
       <div>
         <div>{this.props.name}</div>
-        <Button type='primary'>buttom</Button>
+        <Button type='primary'>button</Button>
       </div>
 
     );
