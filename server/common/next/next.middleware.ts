@@ -9,9 +9,11 @@ import * as url from 'url';
 @Injectable()
 export class NextMiddleware implements NestMiddleware<NextRequest, NextResponse> {
   private logger: Logger;
+  private routes;
 
   constructor(@Inject('NextServer') private nextServer: NextServer) {
     this.logger = new Logger(NextMiddleware.name);
+    this.routes = require('./routes');
   }
 
   use(req: NextRequest, res: NextResponse, next: () => void) {
@@ -28,7 +30,12 @@ export class NextMiddleware implements NestMiddleware<NextRequest, NextResponse>
     else {
       const path = url.parse(req.originalUrl);
       this.logger.debug(`Request path is [${path.href}]`);
-      res.nextRender(path.pathname);
+      const {route, query, parsedUrl} = this.routes.match(path.pathname);
+      if (route) {
+        res.nextRender(route.page, query);
+      } else {
+        res.nextRequestHandler(req, res, parsedUrl);
+      }
     }
   }
 }
