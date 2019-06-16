@@ -1,6 +1,7 @@
 import { NestMiddleware, Injectable, Inject, Logger } from '@nestjs/common';
 import { Server as NextServer } from 'next';
 import { NextRequest, NextResponse } from './next.core';
+import { ConfigService, InjectConfig } from 'nestjs-config';
 import * as url from 'url';
 
 /**
@@ -11,9 +12,12 @@ export class NextMiddleware implements NestMiddleware<NextRequest, NextResponse>
   private logger: Logger;
   private routes;
 
-  constructor(@Inject('NextServer') private nextServer: NextServer) {
+  constructor(
+    @Inject('NextServer') private nextServer: NextServer,
+    @InjectConfig() private readonly config: ConfigService,
+  ) {
     this.logger = new Logger(NextMiddleware.name);
-    this.routes = require('./routes');
+    this.routes = config.get('config.__CORE__.routes');
   }
 
   use(req: NextRequest, res: NextResponse, next: () => void) {

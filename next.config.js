@@ -6,7 +6,7 @@ const path = require('path');
 
 // Where your antd-custom.less file lives
 const themeVariables = lessToJS(
-  fs.readFileSync(path.resolve(__dirname, './src/assets/antd.less'), 'utf8')
+  fs.readFileSync(path.resolve(__dirname, './console/src/assets/antd.less'), 'utf8')
 );
 
 // fix: prevents error when .less files are required by node
@@ -16,7 +16,7 @@ if (typeof require !== 'undefined') {
 
 module.exports = withTypescript(withLess({
   useFileSystemPublicRoutes: false,
-  distDir: '../.next',
+  distDir: '../../.next',
   lessLoaderOptions: {
     javascriptEnabled: true,
     modifyVars: themeVariables // make your antd custom effective
